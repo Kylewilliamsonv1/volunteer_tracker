@@ -32,21 +32,22 @@ post ('/projects') do
   redirect to('/projects')
 end
 
-# get ('/albums/:id') do
-#   @album = Album.find(params[:id].to_i())
-#   erb(:album)
-# end
-# #
-# get ('/albums/:id/edit') do
-#   @album = Album.find(params[:id].to_i())
-#   erb(:edit_album)
-# end
+get ('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  erb(:project)
+end
 
-# patch ('/albums/:id') do
-#   @album = Album.find(params[:id].to_i())
-#   @album.update(params[:name])
-#   redirect to('/albums')
-# end
+
+get ('/projects/:id/edit') do
+  @project = Project.find(params[:id].to_i())
+  erb(:edit_project)
+end
+
+patch ('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  @project.update(params[:title])
+  redirect to('/projects')
+end
 
 # delete ('/albums/:id') do
 #   @album = Album.find(params[:id].to_i())
