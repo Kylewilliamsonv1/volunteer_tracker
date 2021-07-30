@@ -55,17 +55,17 @@ delete ('/projects/:id') do
   redirect to('/projects')
 end
 
-# get ('/albums/:id/songs/:song_id') do
-#   @song = Song.find(params[:song_id].to_i())
-#   erb(:song)
+# get ('/projects/:id/volunteers/:volunteer_id') do
+#   @volunteer = Volunteer.find(params[:volunteer_id].to_i())
+#   erb(:volunteer)
 # end
 
-# post ('/albums/:id/songs') do
-#   @album = Album.find(params[:id].to_i())
-#   song = Song.new({:name => params[:song_name], :album_id => @album.id, :id => nil})
-#   song.save()
-#   erb(:album)
-# end
+post ('/projects/:id/volunteers') do
+  @project = Project.find(params[:id].to_i())
+  volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => @project.id, :id => nil})
+  volunteer.save()
+  erb(:project)
+end
 
 # patch ('/albums/:id/songs/:song_id') do
 #   @album = Album.find(params[:id].to_i())
