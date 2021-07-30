@@ -8,7 +8,7 @@ class Project
   end
 
   def ==(project)
-    self.class.eql?(project.class) & self.name.eql?(project.name)
+    self.class.eql?(project.class) & self.title.eql?(project.title)
   end
 
 end
