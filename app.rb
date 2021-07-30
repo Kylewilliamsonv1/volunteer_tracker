@@ -49,11 +49,11 @@ patch ('/projects/:id') do
   redirect to('/projects')
 end
 
-# delete ('/albums/:id') do
-#   @album = Album.find(params[:id].to_i())
-#   @album.delete()
-#   redirect to('/albums')
-# end
+delete ('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  @project.delete()
+  redirect to('/projects')
+end
 
 # get ('/albums/:id/songs/:song_id') do
 #   @song = Song.find(params[:song_id].to_i())

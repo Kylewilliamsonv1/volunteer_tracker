@@ -1,7 +1,7 @@
 <h1>Update <%=@project.title %></h1>
 
 <form action="/projects/<%= @project.id() %>" method="post">
-  <input name="_method" type="hidden" value="patch">
+  <input name="_method" type="hidden" value="patch" required>
 
   <label for="title">Edit Project</label>
   <input id="title" name="title" type="text">
@@ -10,8 +10,8 @@
 </form>
 
 <form action="/projects/<%= @project.id() %>" method="post">
-  <input name="_method" type="hidden" value="delete">
+  <input name="_method" type="hidden" value="delete" required>
 
-  <button type="submit">Delete project</button>
+  <button type="submit">Delete Project</button>
 </form>
-<p><a href="/albums">Return to album list</a></p>
+<p><a href="/projects">Return to project list</a></p>
