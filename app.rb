@@ -16,25 +16,21 @@ DB = PG.connect({:dbname => "volunteer_tracker"})
 # Form     PATCH /projects/:id      UPDATE  update project
 # Form     DEl   /projects/:id      DELETE  delete project from the list
 
-# get('/') do
-#   redirect to('/projects')
-# end
+get('/') do
+  redirect to('/projects')
+end
 
-# get('/albums') do
-#   @albums = Album.all
-#   erb(:albums)
-# end
+get('/projects') do
+  @projects = Project.all
+  erb(:projects)
+end
 
-# get ('/albums/new') do
-#   erb(:new_album)
-# end
-
-# post ('/albums') do
-#   name = params[:album_name]
-#   album = Album.new({:name => name, :id => nil})
-#   album.save()
-#   redirect to('/albums')
-# end
+post ('/projects') do
+  title = params[:title]
+  project = Project.new({:title => title, :id => nil})
+  project.save()
+  redirect to('/projects')
+end
 
 # get ('/albums/:id') do
 #   @album = Album.find(params[:id].to_i())
