@@ -26,6 +26,13 @@ class Volunteer
   def save
     result = DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch("id").to_i
-  end  
+  end
+
+  def self.find(id)
+    volunteer = DB.exec("SELECT * FROM volunteers WHERE id = #{id};").first
+    name = volunteer.fetch("name")
+    id = volunteer.fetch("id").to_i
+    Volunteer.new({:name => name, :project_id => id, :id => id})
+  end
 end
 
