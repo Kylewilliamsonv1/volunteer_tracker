@@ -51,8 +51,8 @@ describe Project do
     end
   end
 
-  describe('.clear') do
-    it("clears all projects") do
+  describe '.clear' do
+    it 'clears all projects' do
       project = Project.new({:title => "Portland", :id => nil})
       project.save()
       project2 = Project.new({:title => "Eugene", :id => nil})
@@ -64,11 +64,11 @@ describe Project do
 
   describe '.find' do
     it 'returns a project by id' do
-      project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-      project1.save
-      project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
-      project2.save
-      expect(Project.find(project1.id)).to eq project1
+      project = Project.new({:title => "Portland", :id => 1})
+      project.save()
+      project2 = Project.new({:title => "Eugene", :id => 2})
+      project2.save()
+      expect(Project.find(project.id)).to eq project
     end
   end
 
