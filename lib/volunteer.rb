@@ -12,20 +12,20 @@ class Volunteer
     self.name() == volunteer_to_compare.name()
   end
 
-  # def self.all
-  #   returned_volunteers = DB.exec("SELECT * FROM volunteers;")
-  #   volunteers = []
-  #   returned_volunteers.each() do |volunteer|
-  #     name = volunteers.fetch("name")
-  #     id = volunteers.fetch("id").to_i
-  #     volunteers.push(Album.new({:name => name, :id => id}))
-  #   end
-  #   volunteers
-  # end
+  def self.all
+    returned_volunteers = DB.exec("SELECT * FROM volunteers;")
+    volunteers = []
+    returned_volunteers.each() do |volunteer|
+      name = volunteer.fetch("name")
+      id = volunteer.fetch("id").to_i
+      volunteers.push(Volunteer.new({:name => name, :project_id => id, :id => id}))
+    end
+    volunteers
+  end
 
-  # def save
-  #   result = DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}') RETURNING id;")
-  #   @id = result.first().fetch("id").to_i
-  # end  
+  def save
+    result = DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}') RETURNING id;")
+    @id = result.first().fetch("id").to_i
+  end  
 end
 
