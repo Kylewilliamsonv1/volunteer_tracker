@@ -27,4 +27,8 @@ class Project
     @id = result.first().fetch("id").to_i
   end
 
+  def self.clear
+    DB.exec("DELETE FROM projects *;")
+  end
+
 end
