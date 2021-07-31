@@ -34,5 +34,16 @@ class Volunteer
     id = volunteer.fetch("id").to_i
     Volunteer.new({:name => name, :project_id => id, :id => id})
   end
+
+  # def self.find_by_album(alb_id)
+  #   songs = []
+  #   returned_songs = DB.exec("SELECT * FROM songs WHERE album_id = #{alb_id};")
+  #   returned_songs.each() do |song|
+  #     name = song.fetch("name")
+  #     id = song.fetch("id").to_i
+  #     songs.push(Song.new({:name => name, :album_id => alb_id, :id => id}))
+  #   end
+  #   songs
+  # end
 end
 
